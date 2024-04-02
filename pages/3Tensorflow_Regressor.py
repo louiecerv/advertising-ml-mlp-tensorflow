@@ -63,10 +63,10 @@ def app():
 
     n_layers = st.sidebar.slider(      
         label="Number of Neurons in the Hidden Layer:",
-        min_value=16,
-        max_value=128,
-        value=64,  # Initial value
-        step=16
+        min_value=3,
+        max_value=12,
+        value=3,  # Initial value
+        step=1
     )
 
     epochs = st.sidebar.slider(   
