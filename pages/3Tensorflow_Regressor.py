@@ -81,7 +81,7 @@ def app():
     model = Sequential()
     model.add(Dense(units=n_layers, activation=h_activation, input_dim=3))
     model.add(Dense(units=n_layers, activation=h_activation))
-    model.add(Dense(units=1, activation=o_activation))
+    model.add(Dense(units=3, activation=o_activation))
 
     # Compile the model
     model.compile(loss="mse", optimizer=optimizer, metrics=['mean_squared_error', 'mean_absolute_error'])
