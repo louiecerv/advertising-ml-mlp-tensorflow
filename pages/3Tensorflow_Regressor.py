@@ -163,8 +163,8 @@ def app():
         ax1.legend()
 
         # Plot accuracy on the second subplot (ax2)
-        ax2.plot(train_acc, 'g--', label='Training Accuracy')
-        ax2.plot(val_acc, 'r--', label='Validation Accuracy')
+        ax2.plot(train_mae, 'g--', label='Training Mean Absolute Error')
+        ax2.plot(val_mae, 'r--', label='Validation Mean Absolute Error')
         ax2.set_xlabel('Epoch')
         ax2.set_ylabel('Accuracy')
         ax2.legend()
