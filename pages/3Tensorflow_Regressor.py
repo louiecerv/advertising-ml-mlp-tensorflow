@@ -79,8 +79,7 @@ def app():
     
     # Define the ANN model with improvements
     model = Sequential()
-    #model.add(Dense(units=n_neurons, activation=h_activation, input_dim=3))
-    model.add(Input(shape=(3,))),  # Specify expected input shape
+    model.add(Dense(units=n_neurons, activation=h_activation, input_dim=3))
     model.add(Dense(units=n_neurons, activation=h_activation))
     model.add(Dense(units=n_neurons, activation=h_activation))  # Additional hidden layer
     model.add(Dense(units=1))  # Output layer with a single neuron for regression
