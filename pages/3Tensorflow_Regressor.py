@@ -61,7 +61,7 @@ def app():
     options = ["adam", "adagrad", "sgd"]
     optimizer = st.sidebar.selectbox('Select the optimizer:', options)
 
-    n_layers = st.sidebar.slider(      
+    n_neurons = st.sidebar.slider(      
         label="Number of Neurons in the Hidden Layer:",
         min_value=3,
         max_value=12,
@@ -72,19 +72,21 @@ def app():
     epochs = st.sidebar.slider(   
         label="Set the number epochs:",
         min_value=50,
-        max_value=150,
-        value=100,
+        max_value=1500,
+        value=500,
         step=10
     )
-
-    # Define the ANN model
+    
+    # Define the ANN model with improvements
     model = Sequential()
-    model.add(Dense(units=n_layers, activation=h_activation, input_dim=3))
-    model.add(Dense(units=n_layers, activation=h_activation))
-    model.add(Dense(units=3, activation=o_activation))
+    model.add(Dense(units=n_neurons, activation=h_activation, input_dim=3))
+    model.add(Dense(units=n_neurons, activation=h_activation))
+    model.add(Dense(units=n_neurons, activation=h_activation))  # Additional hidden layer
+    model.add(Dense(units=1))  # Output layer with a single neuron for regression
 
     # Compile the model
-    model.compile(loss="mse", optimizer=optimizer, metrics=['mean_squared_error', 'mean_absolute_error'])
+    model.compile(loss='mse', optimizer=optimizer, metrics=['mean_squared_error', 'mean_absolute_error'])
+
 
     with st.expander("CLick to display guide on how to select parameters"):
         text = """ReLU (Rectified Linear Unit): This is the most common activation function used 
